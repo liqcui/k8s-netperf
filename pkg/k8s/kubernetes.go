@@ -165,7 +165,7 @@ func BuildSUT(client *kubernetes.Clientset, s *config.PerfScenarios) error {
 	// Create iperf service
 	iperfSVC := ServiceParams{
 		Name:      "iperf-service",
-		Namespace: "netperf",
+		Namespace: "netperf-server",
 		Labels:    map[string]string{"role": serverRole},
 		CtlPort:   IperfServerCtlPort,
 		DataPort:  IperfServerDataPort,
@@ -178,7 +178,7 @@ func BuildSUT(client *kubernetes.Clientset, s *config.PerfScenarios) error {
 	// Create uperf service
 	uperfSVC := ServiceParams{
 		Name:      "uperf-service",
-		Namespace: "netperf",
+		Namespace: "netperf-server",
 		Labels:    map[string]string{"role": serverRole},
 		CtlPort:   UperfServerCtlPort,
 		DataPort:  UperfServerDataPort,
@@ -191,7 +191,7 @@ func BuildSUT(client *kubernetes.Clientset, s *config.PerfScenarios) error {
 	// Create netperf service
 	netperfSVC := ServiceParams{
 		Name:      "netperf-service",
-		Namespace: "netperf",
+		Namespace: "netperf-server",
 		Labels:    map[string]string{"role": serverRole},
 		CtlPort:   NetperfServerCtlPort,
 		DataPort:  NetperfServerDataPort,
