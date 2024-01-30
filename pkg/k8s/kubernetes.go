@@ -263,7 +263,7 @@ func BuildSUT(client *kubernetes.Clientset, s *config.PerfScenarios) error {
 
 	sdpHost := DeploymentParams{
 		Name:        "server-host",
-		Namespace:   "netperf",
+		Namespace:   "netperf-server",
 		Replicas:    1,
 		HostNetwork: true,
 		Image:       "quay.io/cloud-bulldozer/netperf:latest",
@@ -274,7 +274,7 @@ func BuildSUT(client *kubernetes.Clientset, s *config.PerfScenarios) error {
 	// Start netperf server
 	sdp := DeploymentParams{
 		Name:      "server",
-		Namespace: "netperf",
+		Namespace: "netperf-server",
 		Replicas:  1,
 		Image:     "quay.io/cloud-bulldozer/netperf:latest",
 		Labels:    map[string]string{"role": serverRole},
